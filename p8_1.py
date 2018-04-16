@@ -1,0 +1,41 @@
+#
+count = 1
+boy = []
+girl = []
+f = open('record.txt')
+for each_line in f:
+    if each_line[:6] != '== == == ':
+        (role,line_spoken) = each_line.split(":",1)
+        if role == '小甲鱼':
+            boy.append(line_spoken)
+        if role =='小客服':
+            girl.append(line_spoken)
+
+    else:
+        file_name_boy = 'boy' + str(count) + '.txt'
+        file_name_girl = 'girl' + str(count) + '.txt'
+        boy_file = open(file_name_boy,'w')
+        girl_file = open(file_name_girl,'w')
+        boy.file.writelines(boy)
+        girl.file.writelines(girl)
+        boy_file.close()
+        girl_file.close()
+        boy = []
+        girl = []
+        count +=1
+file_name_boy = 'boy' + str(count) + '.txt'
+file_name_girl = 'girl' + str(count) + '.txt'
+boy_file = open(file_name_boy,'w')
+girl_file = open(file_name_girl,'w')
+boy.file.writelines(boy)
+girl.file.writelines(girl)
+boy_file.close()
+girl_file.close()
+boy = []
+girl = []
+count +=1
+
+
+f.close()
+
+
