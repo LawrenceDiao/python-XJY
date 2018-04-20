@@ -1,70 +1,70 @@
-"""
-内部嵌套
+class Potato:
+	def __init__ (self,name):
+		self.name = name
 
-def fun1():
-    print()
-    def fun2():
-        print()
-    fun2() >> 直接调用里面的 如果 调用fun1()就不会出 fun2
-"""
+	def kick(self):
+		print(self.name)
 
+p = Potato('土豆')
+p.kick()
 
-# 闭包
-
-def funX(x):
-    def funY(y):
-        return x * y
-    return funY
-
-i = funX(8)
-i(5)
-funX(8)(5)
-'''>>>40'''
+p = Potato('花生')
+p.kick()
 
 
-# 通过容器解决内部为局部变量的问题
-def funX():
-    x = [5]
-    def funY():
-        x[0] *= x[0]
-        return  x[0]
-    return funY
-funX()()
-""">>>25"""
+# class Persion:
+# 	__name = '刁'
+# p = Persion()
+
+# print(p.__Persion__name)
+
+# 内部访问python
+
+class Persion:
+	def __init__(self,name):
+		self.__name = name
+	def getName(self):
+		return self.__name
+
+p = Persion('diao ')
+
+# print(p.__name)
+print(p.getName())
+		
+
+class Parent:
+	def hello(self):
+		print('正在调用父类的方法。。。。')
+
+class Child(Parent):
+	pass
+
+p = Parent()
+
+print(p.hello())
+
+c = Child()
+print(c.hello())
 
 
-# lambda 表达方式
+class Ball:
+	def __init__(self,name):
+		self.name = name
+	def kick(self):
+		print("我叫"+ self.name + "别替我")
 
-def ds(x):
-    return 2 * x +1
-
-# 用 lambda 方式表示
-lambda x : 2*x +1
-
-#     ↑  原函数 参数  ：  返回值
-
-#  filter() 函数过滤
-
-temp = filter(None,[1,0,False,True])
-list(temp)
-[1,True]
+b = Ball('土豆')
+b.kick()
 
 
-'''利用filter 写一个奇数筛选器'''
+# 继承
 
-def odd(x):
-    return  x % 2
+class Parent:
+	def hello(self):
+		print("12456")
 
-temp = filter(odd,range(10))
-list(temp)
+class Child(Parent):
+	pass
 
-list(filter(lambda x : x % 2, range(10)))
-
-
-
-#map ()映射
-
-list(map(lambda x:x*2,range(10)))
-#[0,2,4,6,8,10,12,14,16,18]
-
-
+c = Child()
+print(c.hello())
