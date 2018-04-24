@@ -15,4 +15,4 @@ class Pool():
 		print("水池里共有%d 只小乌龟 和 %d 只小鱼"%(self.turtle.num,self.fish.num))
 
 pool =Pool(1,10)
-print(pool.print_num())
+print(pool.print_num()) 
